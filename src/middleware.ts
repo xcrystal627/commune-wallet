@@ -5,7 +5,8 @@ const publicPages = ["/login", "/register"];
 export function middleware(req: NextRequest) {
   const formattedPublicPages = publicPages
     .map((p) => (p === "/" ? ["", "/"] : p))
-    .flat(); // Flatten the array here to ensure proper joining
+    // Flatten the array here to ensure proper joining
+    .flat(); 
 
   const publicPathnameRegex = new RegExp(
     `^(${formattedPublicPages.join("|")})/?$`,
